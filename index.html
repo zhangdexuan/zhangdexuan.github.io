@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="张德轩 - 全栈开发者、创业者、AI应用及增材制造专家">
+    <meta name="keywords" content="全栈开发,AI,AIGC,3D打印,创业">
+    <meta name="author" content="张德轩">
+    
+    <!-- Open Graph 标签 -->
+    <meta property="og:title" content="张德轩 - 个人主页">
+    <meta property="og:description" content="精通IT、AI应用和全栈开发">
+    <meta property="og:type" content="website">
+    
+    <title>张德轩 - 全栈开发者 | 创业者 | AI应用专家</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 自定义 Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#8B5CF6',
+                        accent: '#10B981',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-white text-gray-900">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/姓名 -->
+                <a href="#hero" class="text-xl font-bold text-gray-900 hover:text-primary transition-colors duration-200">
+                    张德轩-个人网站
+                </a>
+                
+                <!-- 汉堡菜单按钮 (移动端) -->
+                <button id="menu-toggle" class="md:hidden text-gray-900 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary rounded p-2" aria-label="切换菜单" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                
+                <!-- 导航链接 (桌面端) -->
+                <ul id="nav-links" class="hidden md:flex space-x-8">
+                    <li><a href="#about" class="nav-link text-gray-700 hover:text-primary transition-colors duration-200">关于</a></li>
+                    <li><a href="#experience" class="nav-link text-gray-700 hover:text-primary transition-colors duration-200">经历</a></li>
+                    <li><a href="#skills" class="nav-link text-gray-700 hover:text-primary transition-colors duration-200">技能</a></li>
+                    <li><a href="#projects" class="nav-link text-gray-700 hover:text-primary transition-colors duration-200">项目</a></li>
+                    <li><a href="#contact" class="nav-link text-gray-700 hover:text-primary transition-colors duration-200">联系</a></li>
+                </ul>
+            </div>
+            
+            <!-- 移动端菜单 -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <ul class="flex flex-col space-y-2">
+                    <li><a href="#about" class="nav-link block py-2 text-gray-700 hover:text-primary transition-colors duration-200">关于</a></li>
+                    <li><a href="#experience" class="nav-link block py-2 text-gray-700 hover:text-primary transition-colors duration-200">经历</a></li>
+                    <li><a href="#skills" class="nav-link block py-2 text-gray-700 hover:text-primary transition-colors duration-200">技能</a></li>
+                    <li><a href="#projects" class="nav-link block py-2 text-gray-700 hover:text-primary transition-colors duration-200">项目</a></li>
+                    <li><a href="#contact" class="nav-link block py-2 text-gray-700 hover:text-primary transition-colors duration-200">联系</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首屏区域 -->
+    <section id="hero" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 pt-16">
+        <div class="container mx-auto px-4 py-20">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <!-- 左侧：文字内容 -->
+                <div class="flex-1 text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 fade-in">
+                        你好，我是 <span class="text-primary">张德轩</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-700 mb-6 fade-in" style="animation-delay: 0.2s;">
+                        全栈开发者 | 创业者 | AI应用及增材制造专家
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 max-w-2xl fade-in" style="animation-delay: 0.4s;">
+                        精通IT、AI技术应用、AIGC创作和全栈开发，拥有丰富的创业、团队和项目管理经验。
+                        习惯以技术手段解决重复性工作，追求高效与创新。
+                    </p>
+                    
+                    <!-- 行动号召按钮 -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start fade-in" style="animation-delay: 0.6s;">
+                        <a href="#projects" class="inline-flex items-center justify-center px-8 py-3 bg-primary text-white rounded-lg hover:bg-blue-600 transition-all duration-200 hover:shadow-lg hover:scale-105 cursor-pointer">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            查看项目
+                        </a>
+                        <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary border-2 border-primary rounded-lg hover:bg-primary hover:text-white transition-all duration-200 hover:shadow-lg hover:scale-105 cursor-pointer">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            联系我
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 右侧：个人照片 -->
+                <div class="flex-1 flex justify-center fade-in" style="animation-delay: 0.8s;">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-primary to-secondary p-1">
+                            <div class="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
+                                <img src="images/profile.png" alt="张德轩的照片" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <!-- 装饰元素 -->
+                        <div class="absolute -top-4 -right-4 w-24 h-24 bg-accent rounded-full opacity-20 animate-pulse"></div>
+                        <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary rounded-full opacity-20 animate-pulse" style="animation-delay: 1s;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 向下滚动提示 -->
+            <div class="text-center mt-16 fade-in" style="animation-delay: 1s;">
+                <a href="#about" class="inline-block text-gray-400 hover:text-primary transition-colors duration-200 cursor-pointer">
+                    <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">关于我</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <!-- 左侧：个人照片 -->
+                <div class="flex-1 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 rounded-lg overflow-hidden shadow-xl">
+                            <img src="images/profile.png" alt="张德轩" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右侧：个人简介 -->
+                <div class="flex-1">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">张德轩</h3>
+                    <div class="relative group mb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            本人可胜任管理、销售、运维、设计、职务辅助人员等多种职位。具备扎实的技术功底和丰富的实战经验，
+                            在IT运维、AIGC创作、全栈开发等领域均有深入研究。
+                        </p>
+                        <!-- 悬停显示详细介绍 -->
+                        <div class="absolute left-0 right-0 top-full mt-2 p-4 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                <strong class="text-primary">专业背景：</strong>南京邮电大学通达学院软件工程专业，系统学习了计算机科学与软件开发的核心知识。<br><br>
+                                <strong class="text-primary">技术特长：</strong>精通计算机硬件维修与故障诊断，熟练掌握3D打印技术及服务器运维管理。在AIGC领域，熟练使用Midjourney、ComfyUI等AI创作工具，擅长视频剪辑与多媒体内容制作。编程方面，精通Python和C++，擅长办公自动化开发，习惯用技术手段提升工作效率。<br><br>
+                                <strong class="text-primary">创业经验：</strong>独立创建并运营D3PN 3D打印服务网和清云AI/API服务网两个创业项目，从0到1完成产品设计、技术开发、运营推广全流程，积累了丰富的项目管理和商业运作经验。<br><br>
+                                <strong class="text-primary">工作理念：</strong>擅长将技术与业务需求相结合，通过创新思维解决实际问题。注重用户体验，追求产品的实用性与美观性的完美平衡。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 教育背景 -->
+                    <div class="mb-6 relative group">
+                        <h4 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                            教育背景
+                        </h4>
+                        <div class="bg-gray-50 rounded-lg p-4 cursor-help">
+                            <p class="font-semibold text-gray-900">南京邮电大学通达学院</p>
+                            <p class="text-gray-600">软件工程 · 本科</p>
+                            <p class="text-gray-500 text-sm">2021.9 - 2025.6</p>
+                        </div>
+                        <!-- 悬停显示详细信息 -->
+                        <div class="absolute left-0 right-0 top-full mt-2 p-3 bg-gray-900 text-white text-sm rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
+                            <strong class="text-blue-400">主修课程：</strong>数据结构与算法、操作系统、计算机网络、数据库原理、软件工程、面向对象程序设计、Web开发技术等<br><br>
+                            <strong class="text-blue-400">专业能力：</strong>系统学习了计算机科学与软件开发的核心知识,掌握了扎实的编程基础和软件工程方法论<br><br>
+                            <strong class="text-blue-400">实践经验：</strong>在校期间参与多个项目开发,积累了丰富的实战经验,培养了独立解决问题的能力
+                        </div>
+                    </div>
+                    
+                    <!-- 个人亮点 -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                            </svg>
+                            核心优势
+                        </h4>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <ul class="space-y-2">
+                                <li class="flex items-start relative group">
+                                    <svg class="w-5 h-5 text-accent mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-600 cursor-help">精通计算机及办公外设的软硬件故障诊断与维修</span>
+                                    <div class="absolute left-0 right-0 top-full mt-2 p-4 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
+                                        <p class="text-gray-700 text-sm leading-relaxed">
+                                            拥有5年以上硬件维修经验，能够快速诊断并解决各类计算机、打印机、投影仪等办公设备的软硬件故障。熟悉Windows/Linux系统维护，擅长网络配置与故障排查。
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start relative group">
+                                    <svg class="w-5 h-5 text-accent mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-600 cursor-help">熟练运用生成式AI工具进行多模态创作</span>
+                                    <div class="absolute left-0 right-0 top-full mt-2 p-4 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
+                                        <p class="text-gray-700 text-sm leading-relaxed">
+                                            精通Midjourney、Stable Diffusion、ComfyUI等AI绘画工具，能够创作高质量的图像、视频内容。熟悉ChatGPT、Claude、Genmini等大语言模型的应用相关软件编程，擅长提示词工程、AI编程与AI工作流设计。
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start relative group">
+                                    <svg class="w-5 h-5 text-accent mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-600 cursor-help">擅长高视觉冲击力的PPT设计与汇报展示</span>
+                                    <div class="absolute left-0 right-0 top-full mt-2 p-4 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
+                                        <p class="text-gray-700 text-sm leading-relaxed">
+                                            精通PowerPoint、Keynote等演示工具，擅长信息可视化设计。能够将复杂的技术内容转化为易懂的视觉呈现，多次在公司汇报和客户演示中获得好评。
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start relative group">
+                                    <svg class="w-5 h-5 text-accent mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-600 cursor-help">习惯以技术手段解决重复性工作，追求高效与创新</span>
+                                    <div class="absolute left-0 right-0 top-full mt-2 p-4 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
+                                        <p class="text-gray-700 text-sm leading-relaxed">
+                                            擅长使用Python开发自动化脚本，提升工作效率。曾开发多个办公自动化工具，包括数据处理、报表生成、文件批处理等，为团队节省大量重复劳动时间。
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工作经历 -->
+    <section id="experience" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">工作经历</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- 时间轴 -->
+                <div class="relative">
+                    <!-- 垂直线 -->
+                    <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-300 transform md:-translate-x-1/2"></div>
+                    
+                    <!-- 工作经历项 -->
+                    <div class="space-y-12">
+                        <!-- 经历1: 清云AI (最新) -->
+                        <div class="relative flex flex-col md:flex-row gap-8">
+                            <!-- 时间点 -->
+                            <div class="absolute left-8 md:left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 mt-1.5"></div>
+                            
+                            <!-- 左侧内容 (桌面端) -->
+                            <div class="flex-1 md:text-right md:pr-12 pl-16 md:pl-0">
+                                <span class="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-2">
+                                    2025.9 - 至今
+                                </span>
+                            </div>
+                            
+                            <!-- 右侧内容 -->
+                            <div class="flex-1 md:pl-12 pl-16 md:pl-12">
+                                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">创始人 & 全栈开发</h3>
+                                    <p class="text-primary font-semibold mb-3">清云AI/API服务网</p>
+                                    <p class="text-gray-600 text-sm mb-4">AI服务平台 · 创业项目</p>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li class="flex items-start">
+                                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            从0到1独立主导架构设计和全栈开发
+                                        </li>
+                                        <li class="flex items-start">
+                                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            建立私域服务体系和客户成功流程
+                                        </li>
+                                        <li class="flex items-start">
+                                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            与多位KOL达成推广合作
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 经历2: 西北电力 -->
+                        <div class="relative flex flex-col md:flex-row gap-8">
+                            <div class="absolute left-8 md:left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 mt-1.5"></div>
+                            
+                            <div class="flex-1 md:text-right md:pr-12 pl-16 md:pl-0">
+                                <span class="inline-block px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm font-semibold mb-2">
+                                    2025.7 - 至今
+                                </span>
+                            </div>
+                            
+                            <div class="flex-1 md:pl-12 pl-16 md:pl-12">
+                                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">商务管理</h3>
+                                    <p class="text-primary font-semibold mb-3">西北电力建设第一工程有限公司</p>
+                                    <p class="text-gray-600 text-sm mb-4">土木工程·机务预算</p>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li class="flex items-start">
+                                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            按照项目经营基础制度、台账规范与图纸操作和录入
+                                        </li>
+                                        <li class="flex items-start">
+                                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            参与分包工程招标
+                                        </li>
+                                        <li class="flex items-start">
+                                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            负责分包工程进度款申请流程
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 经历3: D3PN -->
+                        <div class="relative flex flex-col md:flex-row gap-8">
+                            <div class="absolute left-8 md:left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 mt-1.5"></div>
+                            
+                            <div class="flex-1 md:text-right md:pr-12 pl-16 md:pl-0">
+                                <span class="inline-block px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm font-semibold mb-2">
+                                    2024.6 - 2025.7
+                                </span>
+                            </div>
+                            
+                            <div class="flex-1 md:pl-12 pl-16 md:pl-12">
+                                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">创始人 & 全栈开发</h3>
+                                    <p class="text-primary font-semibold mb-3">D3PN 3D打印服务网</p>
+                                    <p class="text-gray-600 text-sm mb-4">电商平台 · 创业项目</p>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li class="flex items-start">
+                                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            独立完成从服务器搭建到主题定制的全流程
+                                        </li>
+                                        <li class="flex items-start">
+                                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            实现模型授权+成品交易的双轨制业务逻辑
+                                        </li>
+                                        <li class="flex items-start">
+                                            <svg class="w-4 h-4 text-accent mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            成功转化付费用户500+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能 -->
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">专业技能</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- IT运维与硬件 -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow duration-300 group relative">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">IT运维与硬件</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="group/item relative">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700 cursor-help">计算机运维</span>
+                                <span class="text-gray-600 text-sm">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                            <div class="absolute left-0 top-full mt-2 p-2 bg-gray-900 text-white text-xs rounded shadow-xl opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-300 z-20 w-64">
+                                计算机软硬件故障诊断与维修，系统安装与优化，数据恢复
+                            </div>
+                        </div>
+                        <div class="group/item relative">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700 cursor-help">3D打印技术</span>
+                                <span class="text-gray-600 text-sm">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                            <div class="absolute left-0 top-full mt-2 p-2 bg-gray-900 text-white text-xs rounded shadow-xl opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-300 z-20 w-64">
+                                FDM/SLA打印机操作与维护，模型切片优化，打印参数调试
+                            </div>
+                        </div>
+                        <div class="group/item relative">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700 cursor-help">服务器管理</span>
+                                <span class="text-gray-600 text-sm">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                            <div class="absolute left-0 top-full mt-2 p-2 bg-gray-900 text-white text-xs rounded shadow-xl opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-300 z-20 w-64">
+                                Linux服务器部署与运维，Docker容器化，Nginx/Apache配置
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AIGC与多媒体 -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">AIGC与多媒体</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="group/item relative">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700 cursor-help">AI多媒体制作</span>
+                                <span class="text-gray-600 text-sm">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-600 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                            <div class="absolute left-0 top-full mt-2 p-2 bg-gray-900 text-white text-xs rounded shadow-xl opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-300 z-20 w-64">
+                                精通AI绘画、视频生成等提示词工程，擅长创作高质量商业插画、产品设计图和营销素材
+                            </div>
+                        </div>
+                        <div class="group/item relative">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700 cursor-help">视频剪辑</span>
+                                <span class="text-gray-600 text-sm">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-600 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                            <div class="absolute left-0 top-full mt-2 p-2 bg-gray-900 text-white text-xs rounded shadow-xl opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-300 z-20 w-64">
+                                熟练使用Premiere Pro、剪映等工具，擅长视频制作、宣传视频剪辑、AI多媒体处理和特效合成
+                            </div>
+                        </div>
+                        <div class="group/item relative">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700 cursor-help">ComfyUI</span>
+                                <span class="text-gray-600 text-sm">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-600 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                            <div class="absolute left-0 top-full mt-2 p-2 bg-gray-900 text-white text-xs rounded shadow-xl opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-300 z-20 w-64">
+                                掌握Stable Diffusion工作流设计，能够搭建自定义AI图像生成流程和批量处理系统
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 开发与自动化 -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">开发与自动化</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="group/item relative">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700 cursor-help">Python</span>
+                                <span class="text-gray-600 text-sm">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-600 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                            <div class="absolute left-0 top-full mt-2 p-2 bg-gray-900 text-white text-xs rounded shadow-xl opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-300 z-20 w-64">
+                                熟练使用Python进行数据处理、自动化脚本开发、Web爬虫和API开发
+                            </div>
+                        </div>
+                        <div class="group/item relative">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700 cursor-help">跨平台开发</span>
+                                <span class="text-gray-600 text-sm">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-600 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                            <div class="absolute left-0 top-full mt-2 p-2 bg-gray-900 text-white text-xs rounded shadow-xl opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-300 z-20 w-64">
+                                熟悉跨平台开发技术，能基于 Qt、.NET MAUI（或 .NET）及 Flutter 等框架构建多端应用
+                            </div>
+                        </div>
+                        <div class="group/item relative">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700 cursor-help">办公自动化</span>
+                                <span class="text-gray-600 text-sm">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-600 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                            <div class="absolute left-0 top-full mt-2 p-2 bg-gray-900 text-white text-xs rounded shadow-xl opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-300 z-20 w-64">
+                                擅长Excel VBA、Python自动化脚本，能够开发数据处理、报表生成、文件批处理等工具
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 软技能 -->
+            <div class="mt-12 max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">软技能</h3>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full font-semibold">项目管理</span>
+                    <span class="px-4 py-2 bg-purple-100 text-purple-800 rounded-full font-semibold">团队协作</span>
+                    <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full font-semibold">产品思维</span>
+                    <span class="px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full font-semibold">创新思维</span>
+                    <span class="px-4 py-2 bg-red-100 text-red-800 rounded-full font-semibold">客户服务</span>
+                    <span class="px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full font-semibold">市场营销</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目作品 -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">项目作品</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
+                
+                <!-- 分类筛选按钮 -->
+                <div class="flex flex-wrap justify-center gap-3 mb-8">
+                    <button class="filter-btn px-6 py-2 bg-primary text-white rounded-full font-semibold hover:bg-blue-600 transition-colors duration-200 cursor-pointer" data-category="all">
+                        全部
+                    </button>
+                    <button class="filter-btn px-6 py-2 bg-white text-gray-700 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200 cursor-pointer" data-category="ecommerce">
+                        电商平台
+                    </button>
+                    <button class="filter-btn px-6 py-2 bg-white text-gray-700 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200 cursor-pointer" data-category="ai">
+                        AI服务
+                    </button>
+                </div>
+            </div>
+            
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center" id="projects-grid">
+                <!-- 项目1: D3PN -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer relative w-full max-w-md" data-category="ecommerce">
+                    <div class="absolute top-4 right-4 z-10">
+                        <span class="px-3 py-1 bg-red-500 text-white text-xs font-semibold rounded-full shadow-lg">已停止运营</span>
+                    </div>
+                    <div class="relative h-48 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center opacity-75">
+                        <svg class="w-20 h-20 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                        <div class="absolute inset-0 bg-black opacity-0 hover:opacity-10 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">D3PN 3D打印服务网</h3>
+                        <p class="text-gray-600 mb-4">基于WordPress的垂直电商平台，支持模型授权和成品交易</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">WordPress</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">WooCommerce</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">PHP</span>
+                        </div>
+                        
+                        <div class="text-sm text-gray-500 mb-4">2024.6 - 2025.7</div>
+                        
+                        <ul class="text-sm text-gray-600 space-y-1 mb-4">
+                            <li>• 独立完成全流程开发</li>
+                            <li>• 双轨制业务逻辑</li>
+                            <li>• 付费用户500+</li>
+                        </ul>
+                    </div>
+                </div>
+
+                
+                <!-- 项目2: 清云AI -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer w-full max-w-md" data-category="ai">
+                    <div class="relative h-48 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
+                        <svg class="w-20 h-20 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                        <div class="absolute inset-0 bg-black opacity-0 hover:opacity-10 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">清云AI/API服务网</h3>
+                        <p class="text-gray-600 mb-4">AI对话平台和API服务平台，提供C端和B端服务</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">AI</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">API</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">全栈开发</span>
+                        </div>
+                        
+                        <div class="text-sm text-gray-500 mb-4">2025.9 - 至今</div>
+                        
+                        <ul class="text-sm text-gray-600 space-y-1 mb-4">
+                            <li>• 从0到1架构设计</li>
+                            <li>• 私域服务体系</li>
+                            <li>• KOL推广合作</li>
+                        </ul>
+                        
+                        <a href="https://api.echoflow.cn/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary hover:text-blue-600 font-semibold">
+                            <span>在线演示</span>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">联系我</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <!-- 联系信息 -->
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">联系信息</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- 邮箱 -->
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="font-semibold text-gray-900 mb-2">邮箱</h4>
+                            <a href="mailto:1660524989@qq.com" class="text-gray-600 hover:text-primary transition-colors duration-200">1660524989@qq.com</a>
+                        </div>
+                        
+                        <!-- 电话 -->
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="font-semibold text-gray-900 mb-2">电话</h4>
+                            <a href="tel:19891399146" class="text-gray-600 hover:text-primary transition-colors duration-200">19891399146</a>
+                        </div>
+                        
+                        <!-- 地址 -->
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="font-semibold text-gray-900 mb-2">地址</h4>
+                            <p class="text-gray-600">西安</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="footer" class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="text-gray-400">© 2025 张德轩. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- 返回顶部按钮 -->
+                <button id="back-to-top" class="hidden md:block text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer" aria-label="返回顶部">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
